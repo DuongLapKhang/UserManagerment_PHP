@@ -2,7 +2,20 @@
 
 session_start();
 require_once ('config.php');
+require_once ('includes/connect.php');
+require_once ('includes/databases.php');
 require_once ('includes/functions.php');
+require_once ('includes/session.php');
+
+// $session_test = setSession('KhangDuong','KhangDuong value');
+// var_dump($session_test);
+
+// removeSession('KhangDuong');
+// echo getSession('KhangDuong');
+
+
+// setFlashData('KD', 'Cài đặt thành công');
+echo getFlashData('KD');
 
 // Thiết lập đường dẫn an toàn
 $module = _MODULE;

@@ -4,7 +4,18 @@ if (!defined('_CODE')) {
 }
 $data = [
     'pageTitle' => 'Đăng ký',
+    // 'username' => 'huhu',
+    // 'phone' => '1111111111111',
+    // 'email' => 'hihi@gmail.com',
 ];
+// delete('user', '');
+// insert('user', $data);
+
+// $kq = countRow('select * from user');
+// echo "<pre>";
+// print_r($kq);
+// echo "<pre>";
+
 insertLayout('header', $data);
 ?>
 
