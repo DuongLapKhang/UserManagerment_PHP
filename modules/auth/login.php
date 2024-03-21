@@ -8,18 +8,19 @@ $data = [
 insertLayout('header', $data);
 ?>
 
+
 <div class="row">
     <div class="col-4" style="margin: 50px auto">
         <h2 class="text-center text-uppercase">Đăng nhập</h2>
-        <form action="" method="post">
+        <form action="" method="POST">
             <div class="form-group mg-form">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" placeholder="Địa chỉ email">
+                <input name="email" type="email" class="form-control" placeholder="Địa chỉ email">
             </div>
 
             <div class="form-group mg-form">
                 <label for="password">Mật khẩu</label>
-                <input type="password" class="form-control" placeholder="Mật khẩu">
+                <input name="password" type="password" class="form-control" placeholder="Mật khẩu">
             </div>
 
             <button type="submit" class="btn btn-primary btn-block mg-btn">Đăng nhập</button>
@@ -32,4 +33,9 @@ insertLayout('header', $data);
 
 <?php
 insertLayout('footer');
+$res = filter();
+echo '<pre>';
+print_r($res);
+echo '<pre>';
+
 ?>
