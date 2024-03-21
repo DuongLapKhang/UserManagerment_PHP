@@ -4,6 +4,11 @@ session_start();
 require_once ('config.php');
 require_once ('includes/connect.php');
 require_once ('includes/databases.php');
+// Thư viện PHPMailer
+require_once ('includes/phpmailer/Exception.php');
+require_once ('includes/phpmailer/PHPMailer.php');
+require_once ('includes/phpmailer/SMTP.php');
+// *****************
 require_once ('includes/functions.php');
 require_once ('includes/session.php');
 
@@ -15,7 +20,9 @@ require_once ('includes/session.php');
 
 
 // setFlashData('KD', 'Cài đặt thành công');
-echo getFlashData('KD');
+// echo getFlashData('KD');
+
+// sendMail('khangss2803@gmail.com', 'Test hàm gửi mail', 'Nội dung của mail nè');
 
 // Thiết lập đường dẫn an toàn
 $module = _MODULE;
