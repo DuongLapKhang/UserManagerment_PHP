@@ -6,3 +6,8 @@
     margin-bottom: 10px;
     width: 100%;
 }
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+}

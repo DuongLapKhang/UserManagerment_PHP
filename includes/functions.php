@@ -29,6 +29,7 @@ function sendMail($receiver, $subject, $content)
     try {
         //Server settings
         $mail->SMTPDebug = SMTP::DEBUG_OFF;                      //Enable verbose debug output
+        $mail -> CharSet = "UTF-8mb4";
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth = true;                                   //Enable SMTP authentication
@@ -47,8 +48,9 @@ function sendMail($receiver, $subject, $content)
         $mail->Body = $content;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-        $mail->send();
-        echo 'Message has been sent';
+        $sendStatus=  $mail->send();
+        return $sendStatus;
+        
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
@@ -141,14 +143,30 @@ function isPhone($phone)
         return false;
     }
     return true;
+    
 }
 
 // Thông báo 
 function getSmg($smg, $type = 'success')
 {
-    echo '<div class="alert alert-'.$type.'">';
-    echo $smg;
+    ($type == 'success') ? $icon = 'check' : $icon = 'times';
+    echo '<div class="text-'.$type.'-emphasis alert alert-'.$type.'">';
+    echo '<i class="fa fa-'.$icon.' text-'.$type.'-emphasis"></i> '.$smg;
     echo '</div>';
 }
 
 // Hàm chuyển hướng
+function redirect($path='index.php') {
+    header("location: $path");
+    exit;
+}
+
+// Hàm hiển thị lỗi input
+function showFormErrors($errors=[], $name) {
+    echo !empty($errors["$name"]) ? '<span class="error">'.reset($errors["$name"]).'</span>' : null;
+}
+
+// Hiển thị dữ liệu đã nhập (dữ liệu sẽ được giữ lại dù kết thúc session)
+function showOldData($errors=[], $data) {
+    echo !empty($errors["$data"]) ? $errors["$data"] : null;
+}
