@@ -99,3 +99,56 @@ function filter()
     }
     return $filterArr;
 }
+
+// Validate email
+function isEmail($email)
+{
+    return $checkEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+// Hàm kiêm tra số nguyên
+function isInteger($number)
+{
+    return $checkInterger = filter_var($number, FILTER_VALIDATE_INT);
+}
+// Hàm kiểm tra số thực
+function isFloat($number)
+{
+    return $checkFloat = filter_var($number, FILTER_VALIDATE_FLOAT);
+}
+
+// Hàm kiểm tra xem chuỗi có chứa ít nhất một số 
+function containsNumber($string)
+{
+    return preg_match('/\d/', $string) === 1;
+}
+
+// Hàm kiểm tra chuỗi chỉ chứa số
+function containsOnlyNumber($string)
+{
+    return preg_match('/^[0-9]+$/', $string) === 1;
+}
+
+// Hàm kiểm tra số điện thoại hợp lệ (bắt đầu bằng số 0, và đủ 10 số)
+function isPhone($phone)
+{
+    // Kiểm tra bắt đầu bằng 0
+    if ($phone[0] != '0') {
+        return false;
+    }
+    // Kiểm tra đủ 10 số
+    if (!containsOnlyNumber($phone)) {
+        return false;
+    }
+    return true;
+}
+
+// Thông báo 
+function getSmg($smg, $type = 'success')
+{
+    echo '<div class="alert alert-'.$type.'">';
+    echo $smg;
+    echo '</div>';
+}
+
+// Hàm chuyển hướng

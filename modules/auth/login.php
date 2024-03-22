@@ -6,6 +6,17 @@ $data = [
     'pageTitle' => 'Đăng nhập',
 ];
 insertLayout('header', $data);
+
+// Mật khẩu người dùng nhập
+// echo $pass = '123456';
+// echo '<br>';
+// Mật khẩu đã hash
+// echo $passwordHash = password_hash($pass, PASSWORD_DEFAULT);
+// echo '<br>';
+// Kiểm tra mật khẩu người dùng nhập có khớp với mật khẩu hash đã lưu trên csdl 
+// $checkPass = password_verify($pass, $passwordHash);
+// var_dump($checkPass);
+// echo '<br>';
 ?>
 
 
@@ -33,9 +44,4 @@ insertLayout('header', $data);
 
 <?php
 insertLayout('footer');
-$res = filter();
-echo '<pre>';
-print_r($res);
-echo '<pre>';
-
 ?>
